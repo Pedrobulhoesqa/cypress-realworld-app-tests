@@ -74,6 +74,39 @@
       "balance": 49474,
       "createdAt": "2023-12-07T04:39:38.383Z",
       "modifiedAt": "2024-03-07T00:07:36.510Z"
+    },
+    {
+      "id": "R5JiXs2nN",
+      "uuid": "39e71dc9-8824-417b-8c3d-76656040207f",
+      "firstName": "test",
+      "lastName": "1",
+      "username": "test1user",
+      "password": "$2a$10$aMOE81OJzGcPSpCLq1bBM.xqHVVmNYiR9i5MoBpc9vIaD8/wVYEdy",
+      "balance": 0,
+      "createdAt": "2025-03-13T01:36:02.700Z",
+      "modifiedAt": "2025-03-13T01:36:02.700Z"
+    },
+    {
+      "id": "qOnwR7Ceu",
+      "uuid": "df39135f-a55a-467b-b2a7-a8efe97d172c",
+      "firstName": "test",
+      "lastName": "1",
+      "username": "test1user",
+      "password": "$2a$10$bNi3.sVsILuf4kTFQEk8JeFTgowkkRuGvvmRTChhOLvuf0aP2So..",
+      "balance": 0,
+      "createdAt": "2025-03-13T01:38:06.462Z",
+      "modifiedAt": "2025-03-13T01:38:06.462Z"
+    },
+    {
+      "id": "6SmYL_2cU",
+      "uuid": "58269f75-ae22-4d8b-9535-d8bab6f8b33a",
+      "firstName": "test",
+      "lastName": "1",
+      "username": "test1user",
+      "password": "$2a$10$EKQA7sU2L8Lv8/1TLjO.EOOVgroki4T/G.8jQVrZKbJwWRxHpez1m",
+      "balance": 0,
+      "createdAt": "2025-03-13T01:42:24.527Z",
+      "modifiedAt": "2025-03-13T01:42:24.527Z"
     }
   ],
   "contacts": [
@@ -253,6 +286,17 @@
       "isDeleted": false,
       "createdAt": "2024-01-26T14:01:01.815Z",
       "modifiedAt": "2024-03-07T08:44:31.174Z"
+    },
+    {
+      "id": "oujjc7WgD",
+      "uuid": "75d08f62-a21e-4b6c-8b23-d5aba92b71c1",
+      "userId": "R5JiXs2nN",
+      "bankName": "test-1",
+      "accountNumber": "test-1234",
+      "routingNumber": "test-1234",
+      "isDeleted": false,
+      "createdAt": "2025-03-13T01:36:11.476Z",
+      "modifiedAt": "2025-03-13T01:36:11.476Z"
     }
   ],
   "transactions": [
