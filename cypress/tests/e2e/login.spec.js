@@ -15,11 +15,11 @@ describe('Tentar fazer login com credenciais inválidas', () => {
     
     loginPage.accessLoginPage()
     loginPage.checkUsernameField()
-    loginPage.checkPasswordField()
+    loginPage.checkPasswordField(userData.userNull.password)
     loginPage.checkUsernameInvalid()
 
     loginPage.accessLoginPage()
-    loginPage.checkPasswordField()
+    loginPage.checkPasswordField(userData.userFail.password)
     loginPage.checkUsernameField()
     loginPage.checkPasswordInvalid()
   });

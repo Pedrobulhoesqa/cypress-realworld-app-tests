@@ -1,12 +1,12 @@
 class LoginPage {
     selectorsList() {
         const selectorsLogin ={
-            usernameField: "[data-test='signin-username']", 
-            passwordField: "[data-test='signin-password']",
+            signinUsernameField: "[data-test='signin-username']", 
+            signinPasswordField: "[data-test='signin-password']",
             loginButton: "[data-test='signin-submit']",
-            wrongCredentialAlert: "[data-test='signin-error']",
-            requiredUsernameCredentialAlert: '#username-helper-text',
-            wrongPasswordCredentialAlert: "#password-helper-text"
+            signinWrongCredentialAlert: "[data-test='signin-error']",
+            signinRequiredUsernameCredentialAlert: '#username-helper-text',
+            signinWrongPasswordCredentialAlert: "#password-helper-text"
         }
         
         return selectorsLogin
@@ -16,29 +16,33 @@ class LoginPage {
         cy.visit('/signin')
     }
 
+    checkSigninPage() {
+        cy.location('pathname').should('equal', '/signin')
+    }
+
     loginWithUser(username, password) {
-        cy.get(this.selectorsList().usernameField).type(username)
-        cy.get(this.selectorsList().passwordField).type(password)
+        cy.get(this.selectorsList().signinUsernameField).type(username)
+        cy.get(this.selectorsList().signinPasswordField).type(password)
     }
 
     checkUsernameField(){
-        cy.get(this.selectorsList().usernameField).click()
+        cy.get(this.selectorsList().signinUsernameField).click()
     }
 
-    checkPasswordField(){
-        cy.get(this.selectorsList().passwordField).type('1')
+    checkPasswordField(password){
+        cy.get(this.selectorsList().signinPasswordField).type(password)
     }
 
     checkAccessInvalid () {
-        cy.get(this.selectorsList().wrongCredentialAlert).should('exist')
+        cy.get(this.selectorsList().signinWrongCredentialAlert).should('exist')
     }
 
     checkUsernameInvalid () {
-        cy.get(this.selectorsList().requiredUsernameCredentialAlert).should('exist')
+        cy.get(this.selectorsList().signinRequiredUsernameCredentialAlert).should('exist')
     }
 
     checkPasswordInvalid () {
-        cy.get(this.selectorsList().wrongPasswordCredentialAlert).should('exist')
+        cy.get(this.selectorsList().signinWrongPasswordCredentialAlert).should('exist')
     }
 
     submitLoginButton () {
