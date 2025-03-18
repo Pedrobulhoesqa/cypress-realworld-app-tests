@@ -60,11 +60,11 @@ class RegisterPage {
     }
 
     checkSignupInvalidPassword() {
-        cy.get(this.selectorsList().signupWrongPasswordAlert).should('exist')
+        cy.get(this.selectorsList().signupWrongPasswordAlert).should('be.visible')
     }
     
     checkSignupInvalidConfirmPassword() {
-        cy.get(this.selectorsList().signupWrongUsernameAlert).should('exist')
+        cy.get(this.selectorsList().signupWrongConfirmPasswordAlert).should('exist')
     }
 
     checkSubmitSignup() {

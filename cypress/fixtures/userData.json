@@ -6,8 +6,10 @@
         "lastName": "QA"
     },
     "userFail": {
-        "username": "Teste",
-        "password": "1"
+        "username": "1",
+        "password": "1",
+        "firstName": "1",
+        "lastName": "1"
     },
     "userNull":{
         "username": " ",

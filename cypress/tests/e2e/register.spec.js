@@ -22,17 +22,17 @@ describe('Registro de usuário com sucesso', () => {
   })
 
 describe('Tentar registrar um novo usuário com informações incompletas', () => {
-  it.only('Deve exibir mensagens de erro ao tentar registrar um novo usuário sem preencher todas as informações obrigatórias', () => {
+  it('Deve exibir mensagens de erro ao tentar registrar um novo usuário sem preencher todas as informações obrigatórias', () => {
     loginPage.accessLoginPage()
     registerPage.clickSignup()
     registerPage.checkSignupPage()
-    cy.get("[data-test='signup-first-name']").type("1")
-    cy.get("[data-test='signup-last-name']").type("1")
-    cy.get("[data-test='signup-username']").type("1")
-    cy.get("[data-test='signup-password']").type("1")
-    cy.get("#password-helper-text").should("be.visible")
-    cy.get("[data-test='signup-confirmPassword']").type("1")
-    cy.get("[data-test='signup-submit']").should("be.disabled")
+    registerPage.fillNameField(userData.userFail.firstName, userData.userFail.lastName)
+    registerPage.fillUsernameField(userData.userFail.username)
+    registerPage.fillPasswordField(userData.userFail.password)
+    registerPage.fillConfirmPasswordField(userData.userSuccess.password)
+    registerPage.checkSignupInvalidPassword()
+    registerPage.checkSignupInvalidConfirmPassword()
+    registerPage.checkSubmitSignup()
   });
 })
   describe('Tentar registrar um novo usuário com informações nulas', () => {

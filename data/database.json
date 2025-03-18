@@ -74,6 +74,17 @@
       "balance": 49474,
       "createdAt": "2023-12-07T04:39:38.383Z",
       "modifiedAt": "2024-03-07T00:07:36.510Z"
+    },
+    {
+      "id": "O02rs0RVX",
+      "uuid": "5e658397-ee51-4d54-bb6c-41da4eccf494",
+      "firstName": "Pedro",
+      "lastName": "QA",
+      "username": "test1user",
+      "password": "$2a$10$YfFv7HPa193zt6e3qLZszeQqYT1hP5ss0UeXAIjohbyXslnbag3Xu",
+      "balance": 0,
+      "createdAt": "2025-03-18T19:53:21.864Z",
+      "modifiedAt": "2025-03-18T19:53:21.864Z"
     }
   ],
   "contacts": [

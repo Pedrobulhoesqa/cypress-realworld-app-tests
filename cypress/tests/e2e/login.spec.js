@@ -7,7 +7,7 @@ const dashboardPage = new DashboardPage()
 
 describe('Tentar fazer login com credenciais inválidas', () => {
    
-  it.only('Deve exibir uma mensagem de erro ao fazer login com credenciais inválidas', () => {
+  it('Deve exibir uma mensagem de erro ao fazer login com credenciais inválidas', () => {
     loginPage.accessLoginPage()
     loginPage.loginWithUser(userData.userFail.username, userData.userSuccess.password)
     loginPage.submitLoginButton()
@@ -31,8 +31,8 @@ describe('Tentar fazer login com credenciais inválidas', () => {
     loginPage.submitLoginButton()
     dashboardPage.checkDashboardPage()
 
-    /*
-      cy.get("[data-test='user-onboarding-dialog-title']").should("be.visible").contains("Get Started with Real World App")
+    
+      /*cy.get("[data-test='user-onboarding-dialog-title']").should("be.visible").contains("Get Started with Real World App")
       cy.get("[data-test='user-onboarding-next']").click()
       cy.get("[data-test='user-onboarding-dialog-title']").should("be.visible").contains("Create Bank Account")
       cy.get("[data-test='bankaccount-bankName-input']").type("test-1")
@@ -42,7 +42,7 @@ describe('Tentar fazer login com credenciais inválidas', () => {
       cy.get("[data-test='user-onboarding-dialog-title']").contains("Finished")
       cy.get("[data-test='user-onboarding-next']").click()
       cy.get('[data-test="sidenav-username"]').contains("test1user")
-      cy.get('[data-test="nav-transaction-tabs"]').should('exist')
-    */
+      cy.get('[data-test="nav-transaction-tabs"]').should('exist')*/
+    
    })
 })
