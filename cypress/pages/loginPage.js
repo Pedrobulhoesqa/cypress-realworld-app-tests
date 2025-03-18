@@ -6,7 +6,7 @@ class LoginPage {
             loginButton: "[data-test='signin-submit']",
             signinWrongCredentialAlert: "[data-test='signin-error']",
             signinRequiredUsernameCredentialAlert: '#username-helper-text',
-            signinWrongPasswordCredentialAlert: "#password-helper-text"
+            signinWrongPasswordCredentialAlert: "#password-helper-text",
         }
         
         return selectorsLogin

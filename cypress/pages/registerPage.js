@@ -8,7 +8,11 @@ class RegisterPage {
             signupPasswordField: "[data-test='signup-password']",
             signupConfirmPasswordField: "[data-test='signup-confirmPassword']",
             signupSubmitButton: "[data-test='signup-submit']",
-            signupWrongCredential: "#password-helper-text",
+            signupWrongFirstNameAlert: '#firstName-helper-text',
+            signupWrongLastNameAlert: '#lastName-helper-text',
+            signupWrongUsernameAlert: '#lastName-helper-text',
+            signupWrongPasswordAlert: '#confirmPassword-helper-text',
+            signupWrongConfirmPasswordAlert: '#confirmPassword-helper-text'
         }
         
         return selectorsRegister
@@ -43,6 +47,30 @@ class RegisterPage {
         cy.get(this.selectorsList().signupConfirmPasswordField).click()
     }
 
+    checkSignupInvalidFirstName() {
+        cy.get(this.selectorsList().signupWrongFirstNameAlert).should('exist')
+    }
+
+    checkSignupInvalidLastName() {
+        cy.get(this.selectorsList().signupWrongLastNameAlert).should('exist')
+    }
+
+    checkSignupInvalidUsername() {
+        cy.get(this.selectorsList().signupWrongUsernameAlert).should('exist')
+    }
+
+    checkSignupInvalidPassword() {
+        cy.get(this.selectorsList().signupWrongPasswordAlert).should('exist')
+    }
+    
+    checkSignupInvalidConfirmPassword() {
+        cy.get(this.selectorsList().signupWrongUsernameAlert).should('exist')
+    }
+
+    checkSubmitSignup() {
+        cy.get(this.selectorsList().signupSubmitButton).should('be.disabled')
+    }
+
     fillNameField(firstName, lastName) {
         cy.get(this.selectorsList().signupFirstNameField).type(firstName)
         cy.get(this.selectorsList().signupLastNameField).type(lastName)
@@ -62,10 +90,6 @@ class RegisterPage {
 
     clickSubmitSignup() {
         cy.get(this.selectorsList().signupSubmitButton).click()
-    }
-
-    checkSignupInvalidCredential() {
-        cy.get(this.selectorsList().signupWrongCredential).should('exist')
     }
 }
 
