@@ -6,13 +6,31 @@
         "lastName": "QA"
     },
     "userFail": {
-        "username": "1",
-        "password": "1",
-        "firstName": "1",
-        "lastName": "1"
+        "username": "...",
+        "password": "...",
+        "firstName": "...",
+        "lastName": "..."
     },
     "userNull":{
         "username": " ",
         "password": " "
+    },
+
+    "bankSuccess":{
+        "name": "bankTest",
+        "routingNumber": "routing12",
+        "accountNumber": "account12"
+    },
+
+    "bankFail":{
+        "name": "...",
+        "routingNumber": "...",
+        "accountNumber": "..."
+    },
+
+    "bankNull":{
+        "name": " ",
+        "routingNumber": " ",
+        "accountNumber": " "
     }
 }

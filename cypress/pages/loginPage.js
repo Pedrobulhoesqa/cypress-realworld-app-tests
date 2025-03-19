@@ -25,12 +25,12 @@ class LoginPage {
         cy.get(this.selectorsList().signinPasswordField).type(password)
     }
 
-    checkUsernameField(){
+    checkUsernameField () {
         cy.get(this.selectorsList().signinUsernameField).click()
     }
 
-    checkPasswordField(password){
-        cy.get(this.selectorsList().signinPasswordField).type(password)
+    checkPasswordField(){
+        cy.get(this.selectorsList().signinPasswordField).click()
     }
 
     checkAccessInvalid () {

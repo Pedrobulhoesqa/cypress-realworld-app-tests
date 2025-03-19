@@ -76,15 +76,26 @@
       "modifiedAt": "2024-03-07T00:07:36.510Z"
     },
     {
-      "id": "O02rs0RVX",
-      "uuid": "5e658397-ee51-4d54-bb6c-41da4eccf494",
+      "id": "rBK3Qtk0b",
+      "uuid": "901abf3b-2624-4b86-8d8a-6d34ac832194",
       "firstName": "Pedro",
       "lastName": "QA",
       "username": "test1user",
-      "password": "$2a$10$YfFv7HPa193zt6e3qLZszeQqYT1hP5ss0UeXAIjohbyXslnbag3Xu",
+      "password": "$2a$10$jafsuHLwZ/rqX2C1DPB5ZO0njjG4ErlcozH.jVYql9hUclR4MgqQ6",
       "balance": 0,
-      "createdAt": "2025-03-18T19:53:21.864Z",
-      "modifiedAt": "2025-03-18T19:53:21.864Z"
+      "createdAt": "2025-03-19T19:59:28.591Z",
+      "modifiedAt": "2025-03-19T19:59:28.591Z"
+    },
+    {
+      "id": "cQVnZvey_",
+      "uuid": "f0a4e5bf-d5b6-49ef-868e-ed64da134dce",
+      "firstName": "Pedro",
+      "lastName": "QA",
+      "username": "test1user",
+      "password": "$2a$10$qcLSEYQIQtlJJFR3zZwHRe6n5ii2m5xy/ecorwzeLySwMbvqjBUGi",
+      "balance": 0,
+      "createdAt": "2025-03-19T20:01:18.784Z",
+      "modifiedAt": "2025-03-19T20:01:18.784Z"
     }
   ],
   "contacts": [
@@ -264,6 +275,17 @@
       "isDeleted": false,
       "createdAt": "2024-01-26T14:01:01.815Z",
       "modifiedAt": "2024-03-07T08:44:31.174Z"
+    },
+    {
+      "id": "yWZ4HZ2zV",
+      "uuid": "014758da-3c99-4ca9-8376-97ed8b3dd7f6",
+      "userId": "rBK3Qtk0b",
+      "bankName": "bankTest",
+      "accountNumber": "account12",
+      "routingNumber": "routing12",
+      "isDeleted": false,
+      "createdAt": "2025-03-19T20:01:36.226Z",
+      "modifiedAt": "2025-03-19T20:01:36.226Z"
     }
   ],
   "transactions": [

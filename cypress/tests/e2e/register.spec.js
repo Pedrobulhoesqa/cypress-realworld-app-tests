@@ -22,7 +22,7 @@ describe('Registro de usuário com sucesso', () => {
   })
 
 describe('Tentar registrar um novo usuário com informações incompletas', () => {
-  it('Deve exibir mensagens de erro ao tentar registrar um novo usuário sem preencher todas as informações obrigatórias', () => {
+  it('Deve exibir mensagens de erro ao tentar registrar um novo usuário ao preencher de forma invalida todas as informações', () => {
     loginPage.accessLoginPage()
     registerPage.clickSignup()
     registerPage.checkSignupPage()
