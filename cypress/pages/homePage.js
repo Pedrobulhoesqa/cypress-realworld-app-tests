@@ -11,7 +11,8 @@ class HomePage {
             onboardPopupBankAccountSubmitButton: "[data-test='bankaccount-submit']",
             onboardingWrongBankNameAlert:'#bankaccount-bankName-input-helper-text',
             onboardingWrongBankRoutingNumberAlert:'#bankaccount-routingNumber-input-helper-text',
-            onboardingWrongBankAccountNumberAlert:'#bankaccount-routingNumber-input-helper-text'
+            onboardingWrongBankAccountNumberAlert:'#bankaccount-routingNumber-input-helper-text',
+            buttonNavNewTransaction:"[data-test='nav-top-new-transaction']"
         }
 
         return selectorsHome
