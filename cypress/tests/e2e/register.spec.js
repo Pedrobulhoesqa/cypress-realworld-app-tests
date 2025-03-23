@@ -35,6 +35,7 @@ describe('Tentar registrar um novo usuário com informações incompletas', () =
     registerPage.checkSubmitSignup()
   });
 })
+
   describe('Tentar registrar um novo usuário com informações nulas', () => {
     it('Deve exibir mensagens de erro ao tentar registrar um novo usuário sem preencher todas as informações', () => {
       loginPage.accessLoginPage()
@@ -51,9 +52,6 @@ describe('Tentar registrar um novo usuário com informações incompletas', () =
       registerPage.checkSignupInvalidUsername()
       registerPage.checkSignupInvalidPassword()
       registerPage.checkSignupInvalidConfirmPassword()
-      registerPage.checkSubmitSignup()
-      
-      
-      
+      registerPage.checkSubmitSignup()  
     });
 });
