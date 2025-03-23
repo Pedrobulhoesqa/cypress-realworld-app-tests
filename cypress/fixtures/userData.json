@@ -32,5 +32,13 @@
         "name": " ",
         "routingNumber": " ",
         "accountNumber": " "
+    },
+
+    "userTransaction":{
+        "name": "Ted Parisian",
+        "positiveValue": "100",
+        "negativeValue": "-2000",
+        "zeroValue": "0",
+        "extremeValue": "10000000000"
     }
 }

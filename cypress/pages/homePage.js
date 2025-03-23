@@ -80,6 +80,9 @@ class HomePage {
         cy.get(this.selectorsList().onboardPopupBankAccountSubmitButton).click()
     }
 
+    clickNewTransaction (){
+        cy.get(this.selectorsList().buttonNavNewTransaction).click()
+    }
 }
 
 export default HomePage
