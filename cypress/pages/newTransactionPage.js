@@ -83,9 +83,14 @@ calculate(){
 cy.get('[data-test="sidenav-user-balance"]')
   .invoke('text')
   // tip: use an assertion to print the extracted text
+  .then((s) => {
+    const start = s.indexOf('($')
+    const end = s.indexOf(')', start)
+    return s.slice(start + 2, end)
+  })
   .should('be.a', 'string')
   // convert text to integer
-  .then(parseFloat)
+  .then(Math.floor)
   // tip: make sure the conversion is successful
   .should('be.a', 'number')
   // compare the converted number to the expected value
