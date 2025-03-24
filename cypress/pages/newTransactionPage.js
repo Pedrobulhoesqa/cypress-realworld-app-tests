@@ -40,12 +40,15 @@ class NewTransactionPage {
 
     checkAmmountField() {
         cy.get(this.selectorsList().inputAmountTransaction).click()
+            
     }
+    
 
     fillAmmountField (positiveValue, negativeValue, zeroValune, extremeValue){
         cy.get(this.selectorsList().inputAmountTransaction)
           .type(positiveValue, negativeValue, zeroValune, extremeValue)
-    }
+        }
+    
 
     checkNoteField(){
         cy.get(this.selectorsList().inputDescriptionTransaction).click()
@@ -71,20 +74,38 @@ class NewTransactionPage {
         cy.get(this.selectorsList().buttonSubmitRequestTransaction).click()
     }
 
-    /*balance(positiveValue){
+
+
+
+//teste
+  
+calculate(){
+cy.get('[data-test="sidenav-user-balance"]')
+  .invoke('text')
+  // tip: use an assertion to print the extracted text
+  .should('be.a', 'string')
+  // convert text to integer
+  .then(parseFloat)
+  // tip: make sure the conversion is successful
+  .should('be.a', 'number')
+  // compare the converted number to the expected value
+  .then(cy.log)
+}
+
+
+   /* checkBalance(positiveValue, negativeValue, zeroValune, extremeValue){
         cy.get(this.selectorsList().balanceField)
             .invoke('text')
-            //.then(parseFloat)
+            .then(parseFloat)
             .then(cy.log)
             .then((scoreA) => {
-                cy.get(this.selectorsList().inputAmountTransaction) 
-                .invoke('val').should('eq', positiveValue)
-                    //.then(parseFloat)
-                    .then(cy.log)
+                cy.get('#amount').log(positiveValue, negativeValue, zeroValune, extremeValue) 
+                //.invoke('val').should('eq', positiveValue, negativeValue, zeroValune, extremeValue)
+                    .then(parseFloat)
                     .then((scoreB) => {
                         expect(scoreA).to.be.greaterThan(scoreB)
                     
-                })
+                    })
 
         })
     }*/

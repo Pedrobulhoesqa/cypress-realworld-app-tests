@@ -9,7 +9,7 @@ const newTransactionPage = new NewTransactionPage()
 
 
 describe('Transação em Request', () => {
-    it('Deve realizar transferencia com saldo suficiente', () => {
+    it.only('Deve realizar transferencia com saldo suficiente', () => {
         loginPage.accessLoginPage()
         loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
         loginPage.submitLoginButton()
@@ -19,8 +19,9 @@ describe('Transação em Request', () => {
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clickUser()
         newTransactionPage.fillAmmountField(userData.userTransaction.positiveValue)
+        //newTransactionPage.checkBalance(userData.userTransaction.positiveValue)
         newTransactionPage.fillDescriptionField()
-        //newTransactionPage.balance(userData.userTransaction.positiveValue)
+        newTransactionPage.calculate()
         newTransactionPage.clickSubmitPayment()
         newTransactionPage.successAlert()
     });
