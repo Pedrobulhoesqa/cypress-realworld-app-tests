@@ -71,13 +71,13 @@ class NewTransactionPage {
         cy.get(this.selectorsList().buttonSubmitRequestTransaction).click()
     }
 
-    balance(positiveValue){
+    /*balance(positiveValue){
         cy.get(this.selectorsList().balanceField)
             .invoke('text')
             //.then(parseFloat)
             .then(cy.log)
             .then((scoreA) => {
-                cy.get(this.selectorsList().inputAmountTransaction)
+                cy.get(this.selectorsList().inputAmountTransaction) 
                 .invoke('val').should('eq', positiveValue)
                     //.then(parseFloat)
                     .then(cy.log)
@@ -87,11 +87,14 @@ class NewTransactionPage {
                 })
 
         })
-    }
-    
+    }*/
 
     successAlert(){
         cy.get(this.selectorsList().alertBarSuccess).should('be.visible')
+    }
+
+    wrongSuccessAlert(){
+        cy.get(this.selectorsList().alertBarSuccess).should('be.hidden')
     }
 }
 

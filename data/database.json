@@ -11,7 +11,7 @@
       "phoneNumber": "398-225-9900",
       "avatar": "https://avatars.dicebear.com/api/human/uBmeaz5pX.svg",
       "defaultPrivacyLevel": "public",
-      "balance": 10119047,
+      "balance": 10149047,
       "createdAt": "2023-03-09T22:26:40.101Z",
       "modifiedAt": "2024-03-07T10:07:57.580Z"
     },
@@ -82,7 +82,7 @@
       "lastName": "QA",
       "username": "test1user",
       "password": "$2a$10$prPLheHwkxaCSKqaR36VfezM424prdBUCZoQHvvmYD9Ll4KeI3oSy",
-      "balance": 130000,
+      "balance": 100000,
       "createdAt": "2025-03-23T17:46:36.453Z",
       "modifiedAt": "2025-03-23T17:46:36.453Z"
     }
@@ -10163,6 +10163,39 @@
       "status": "complete",
       "createdAt": "2025-03-23T21:00:28.415Z",
       "modifiedAt": "2025-03-23T21:00:28.415Z"
+    },
+    {
+      "id": "KHPnDkAqH",
+      "uuid": "548d3b90-8af8-47de-8213-159e87e70c8f",
+      "amount": 10000,
+      "description": "test",
+      "receiverId": "uBmeaz5pX",
+      "senderId": "8RJTOvC7k",
+      "status": "complete",
+      "createdAt": "2025-03-23T22:58:33.495Z",
+      "modifiedAt": "2025-03-23T22:58:33.495Z"
+    },
+    {
+      "id": "sz72qtPue",
+      "uuid": "c940f904-a5b5-4b66-a10c-24728df9e5c7",
+      "amount": 10000,
+      "description": "test",
+      "receiverId": "uBmeaz5pX",
+      "senderId": "8RJTOvC7k",
+      "status": "complete",
+      "createdAt": "2025-03-23T23:04:51.199Z",
+      "modifiedAt": "2025-03-23T23:04:51.199Z"
+    },
+    {
+      "id": "UrvCa0_8Z",
+      "uuid": "9f70c880-6d10-4c48-a3e6-34f5afa02ab9",
+      "amount": 10000,
+      "description": "test",
+      "receiverId": "uBmeaz5pX",
+      "senderId": "8RJTOvC7k",
+      "status": "complete",
+      "createdAt": "2025-03-23T23:10:58.831Z",
+      "modifiedAt": "2025-03-23T23:10:58.831Z"
     }
   ],
   "likes": [
@@ -10999,6 +11032,36 @@
       "isRead": false,
       "createdAt": "2025-03-23T21:00:28.429Z",
       "modifiedAt": "2025-03-23T21:00:28.429Z"
+    },
+    {
+      "id": "btaSVCKTaB",
+      "uuid": "0cb67fec-8437-49ea-97d6-17c3692b7a48",
+      "userId": "uBmeaz5pX",
+      "transactionId": "KHPnDkAqH",
+      "status": "received",
+      "isRead": false,
+      "createdAt": "2025-03-23T22:58:33.531Z",
+      "modifiedAt": "2025-03-23T22:58:33.531Z"
+    },
+    {
+      "id": "nbDdGxkcLj",
+      "uuid": "6f9d227c-0065-4fc5-9ad5-4e12a9d9d28b",
+      "userId": "uBmeaz5pX",
+      "transactionId": "sz72qtPue",
+      "status": "received",
+      "isRead": false,
+      "createdAt": "2025-03-23T23:04:51.215Z",
+      "modifiedAt": "2025-03-23T23:04:51.215Z"
+    },
+    {
+      "id": "sB29aB1To5",
+      "uuid": "ee2b05a1-3da0-4c6c-ab81-40d58a9edad0",
+      "userId": "uBmeaz5pX",
+      "transactionId": "UrvCa0_8Z",
+      "status": "received",
+      "isRead": false,
+      "createdAt": "2025-03-23T23:10:58.847Z",
+      "modifiedAt": "2025-03-23T23:10:58.847Z"
     }
   ],
   "banktransfers": [
