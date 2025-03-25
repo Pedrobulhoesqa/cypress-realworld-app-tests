@@ -43,13 +43,11 @@ class NewTransactionPage {
             
     }
     
-
     fillAmmountField (positiveValue, negativeValue, zeroValune, extremeValue){
         cy.get(this.selectorsList().inputAmountTransaction)
           .type(positiveValue, negativeValue, zeroValune, extremeValue)
-        }
+    }
     
-
     checkNoteField(){
         cy.get(this.selectorsList().inputDescriptionTransaction).click()
     }
@@ -73,40 +71,34 @@ class NewTransactionPage {
     clickSubmitRequest(){
         cy.get(this.selectorsList().buttonSubmitRequestTransaction).click()
     }
-
-
-
-
-//teste
   
-compareBalance(){
-    cy.get('[data-test="sidenav-user-balance"]')
-      .invoke('text')
-      .then((text) => {
+    compareBalance(){
+        cy.get('[data-test="sidenav-user-balance"]')
+          .invoke('text')
+          .then((text) => {
 
-        const cleanedText = text.replace(/\D/g, '');
-        return parseFloat(cleanedText);
+            const cleanedText = text.replace(/\D/g, '');
+            return parseFloat(cleanedText);
+            })
 
-      })
-      .should('be.a', 'number')
-      .as('text1')
-      .then(cy.log)
-      
+          .should('be.a', 'number')
+          .as('balance')
+          .then(cy.log)
+                
+        cy.get('#amount').invoke('val')
+          .then((value) => {
 
-    cy.get('#amount').invoke('val')
-      .then((value) => {
-        const cleanedValue = value.replace(/\D/g, '');
-        return parseFloat(cleanedValue);
+            const cleanedValue = value.replace(/\D/g, '');
+            return parseFloat(cleanedValue);
+           })
 
-       })
-       .should('be.a', 'number')
-       .as('text2')
-       .then(cy.log)
-       
-        
-       cy.then(function () {
-        expect(this.text1, 'compare scores').to.be.greaterThan(this.text2)
-      })                      
+           .should('be.a', 'number')
+           .as('amount')
+           .then(cy.log)
+
+           cy.then(function () {
+            expect(this.balance, 'compare scores').to.be.greaterThanOrEqual(this.amount)
+          })                      
     }
 
     successAlert(){
