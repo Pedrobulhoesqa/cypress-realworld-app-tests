@@ -7,7 +7,7 @@ const loginPage = new LoginPage ()
 const registerPage = new RegisterPage ()
 
 describe('Registro de usuário com sucesso', () => {
-    it('Criar o usuário corretamente', () => {
+    it.only('Criar o usuário corretamente', () => {
        
       loginPage.accessLoginPage()
       registerPage.clickSignup()

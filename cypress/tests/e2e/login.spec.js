@@ -56,7 +56,7 @@ describe('Fazer login com credenciais válidas, mas registro de banco inválido'
 })
 
 describe('Fazer login com credenciais válidas', () => {
-  it('Deve fazer login com um usuário válido e completar a criação de banco', () => {
+  it.only('Deve fazer login com um usuário válido e completar a criação de banco', () => {
     loginPage.accessLoginPage()
     loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
     loginPage.submitLoginButton()

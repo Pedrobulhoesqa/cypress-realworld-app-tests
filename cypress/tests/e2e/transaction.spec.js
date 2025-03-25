@@ -19,9 +19,8 @@ describe('Transação em Request', () => {
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clickUser()
         newTransactionPage.fillAmmountField(userData.userTransaction.positiveValue)
-        //newTransactionPage.checkBalance(userData.userTransaction.positiveValue)
         newTransactionPage.fillDescriptionField()
-        newTransactionPage.calculate()
+        newTransactionPage.compareBalance()
         newTransactionPage.clickSubmitPayment()
         newTransactionPage.successAlert()
     });

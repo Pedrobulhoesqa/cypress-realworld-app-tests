@@ -79,41 +79,35 @@ class NewTransactionPage {
 
 //teste
   
-calculate(){
-cy.get('[data-test="sidenav-user-balance"]')
-  .invoke('text')
-  // tip: use an assertion to print the extracted text
-  .then((s) => {
-    const start = s.indexOf('($')
-    const end = s.indexOf(')', start)
-    return s.slice(start + 2, end)
-  })
-  .should('be.a', 'string')
-  // convert text to integer
-  .then(Math.floor)
-  // tip: make sure the conversion is successful
-  .should('be.a', 'number')
-  // compare the converted number to the expected value
-  .then(cy.log)
-}
+compareBalance(){
+    cy.get('[data-test="sidenav-user-balance"]')
+      .invoke('text')
+      .then((text) => {
 
+        const cleanedText = text.replace(/\D/g, '');
+        return parseFloat(cleanedText);
 
-   /* checkBalance(positiveValue, negativeValue, zeroValune, extremeValue){
-        cy.get(this.selectorsList().balanceField)
-            .invoke('text')
-            .then(parseFloat)
-            .then(cy.log)
-            .then((scoreA) => {
-                cy.get('#amount').log(positiveValue, negativeValue, zeroValune, extremeValue) 
-                //.invoke('val').should('eq', positiveValue, negativeValue, zeroValune, extremeValue)
-                    .then(parseFloat)
-                    .then((scoreB) => {
-                        expect(scoreA).to.be.greaterThan(scoreB)
-                    
-                    })
+      })
+      .should('be.a', 'number')
+      .as('text1')
+      .then(cy.log)
+      
 
-        })
-    }*/
+    cy.get('#amount').invoke('val')
+      .then((value) => {
+        const cleanedValue = value.replace(/\D/g, '');
+        return parseFloat(cleanedValue);
+
+       })
+       .should('be.a', 'number')
+       .as('text2')
+       .then(cy.log)
+       
+        
+       cy.then(function () {
+        expect(this.text1, 'compare scores').to.be.greaterThan(this.text2)
+      })                      
+    }
 
     successAlert(){
         cy.get(this.selectorsList().alertBarSuccess).should('be.visible')
