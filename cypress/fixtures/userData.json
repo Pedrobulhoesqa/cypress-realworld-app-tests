@@ -36,9 +36,10 @@
 
     "userTransaction":{
         "name": "Ted Parisian",
+        "specialCharacters": "--",
         "positiveValue": "100",
-        "negativeValue": "-2000",
+        "negativeValue": "-1000",
         "zeroValue": "0",
-        "extremeValue": "10000000000"
+        "extremeValue": "1000000000000000000"
     }
 }

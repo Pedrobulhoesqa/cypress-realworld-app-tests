@@ -1,3 +1,4 @@
+import { be } from "date-fns/locale"
 import { existsSync } from "fs"
 import { delay } from "lodash"
 
@@ -26,6 +27,39 @@ class NewTransactionPage {
         cy.location('pathname').should('equal', '/transaction/new')
     }
 
+    checkNoteField(){
+        cy.get(this.selectorsList().inputDescriptionTransaction).click()
+    }
+
+    checkAmmountField() {
+        cy.get(this.selectorsList().inputAmountTransaction).click()           
+    }
+
+    checkListUsers() {
+        cy.get(this.selectorsList().listUsers).should('not.be.empty')
+    }
+
+    clickUser (){
+        cy.get(this.selectorsList().listUsers).find('li').eq(0).click()
+    }
+    
+    clickSubmitPayment(){
+        cy.get(this.selectorsList().buttonSubmitPaymentTransaction).click()
+    }
+
+    clickSubmitRequest(){
+        cy.get(this.selectorsList().buttonSubmitRequestTransaction).click()
+    }
+
+    fillAmmountField (positiveValue, negativeValue, zeroValune, extremeValue, specialCharacters){
+        cy.get(this.selectorsList().inputAmountTransaction)
+          .type(positiveValue, negativeValue, zeroValune, extremeValue, )         
+    }
+
+    fillDescriptionField(){
+        cy.get(this.selectorsList().inputDescriptionTransaction).type('test')
+    }
+
     typeSearchField(name) {
         cy.get(this.selectorsList().inputListSearch).type(name)
     }
@@ -34,45 +68,24 @@ class NewTransactionPage {
         cy.get(this.selectorsList().inputListSearch).clear()
     }
 
-    clickUser (){
-        cy.get(this.selectorsList().listUsers).find('li').eq(0).click()
-    }
-
-    checkAmmountField() {
-        cy.get(this.selectorsList().inputAmountTransaction).click()
-            
-    }
-    
-    fillAmmountField (positiveValue, negativeValue, zeroValune, extremeValue){
+    clearAmmountField (){
         cy.get(this.selectorsList().inputAmountTransaction)
-          .type(positiveValue, negativeValue, zeroValune, extremeValue)
-    }
-    
-    checkNoteField(){
-        cy.get(this.selectorsList().inputDescriptionTransaction).click()
+          .clear()         
     }
 
-    fillDescriptionField(){
-        cy.get(this.selectorsList().inputDescriptionTransaction).type('test')
+    alertSuccessTransaction(){
+        cy.get(this.selectorsList().alertBarSuccess).should('be.visible')
     }
 
-    checkButtonSubmitPayment(){
-        cy.get(this.selectorsList().buttonSubmitPaymentTransaction).should('be.enabled')
+    alertFailedAmount(){
+        cy.get(this.selectorsList().wrongAmountAlert).should('be.visible')
     }
 
-    clickSubmitPayment(){
-        cy.get(this.selectorsList().buttonSubmitPaymentTransaction).click()
+    alertFailedNote(){
+        cy.get(this.selectorsList().wrongDescriptionAlert).should('be.visible')
     }
 
-    checkButtonSubmitRequest(){
-        cy.get(this.selectorsList().buttonSubmitRequestTransaction).should('be.enabled')
-    }
-
-    clickSubmitRequest(){
-        cy.get(this.selectorsList().buttonSubmitRequestTransaction).click()
-    }
-  
-    compareBalance(){
+    validateValuetTransaction(){
         cy.get('[data-test="sidenav-user-balance"]')
           .invoke('text')
           .then((text) => {
@@ -82,32 +95,49 @@ class NewTransactionPage {
             })
 
           .should('be.a', 'number')
-          .as('balance')
-          .then(cy.log)
+          .as('balance')          
                 
-        cy.get('#amount').invoke('val')
+        cy.get('#amount')
+          .invoke('val')
           .then((value) => {
 
-            const cleanedValue = value.replace(/\D/g, '');
+            const cleanedValue = value.replace(/(?!-)[^0-9.]/g, "");
             return parseFloat(cleanedValue);
            })
 
            .should('be.a', 'number')
            .as('amount')
-           .then(cy.log)
 
-           cy.then(function () {
-            expect(this.balance, 'compare scores').to.be.greaterThanOrEqual(this.amount)
-          })                      
-    }
+        cy.then(function () {
+            expect(this.balance).to.gte(0)
+          })
 
-    successAlert(){
-        cy.get(this.selectorsList().alertBarSuccess).should('be.visible')
-    }
+//testar
+          
+const button = this.selectorsList().buttonSubmitPaymentTransaction
 
-    wrongSuccessAlert(){
-        cy.get(this.selectorsList().alertBarSuccess).should('be.hidden')
-    }
+          cy.get(this.selectorsList().buttonSubmitPaymentTransaction)
+            .then(function () {
+                if (this.amount < 0) {
+                    button = disabled
+                }
+          })
+            
+       /* 
+        cy.get(this.selectorsList().buttonSubmitPaymentTransaction)
+          
+            .then(function () {
+                expect(this.amount).to.be.gt(balance)
+            })
+            .should('be.disabled')
+
+        cy.get(this.selectorsList().buttonSubmitRequestTransaction)
+          
+            .then(function () {
+                expect(this.amount).to.lte(0)
+            })
+            .should('be.disabled') */
+    }       
 }
 
 export default NewTransactionPage
