@@ -24,7 +24,7 @@ describe('Transação em Request', () => {
         newTransactionPage.alertSuccessTransaction()
     })
 
-    it('Deve realizar transferencia com saldo suficiente', () => {
+    it.only('Deve realizar transferencia com saldo suficiente', () => {
         loginPage.accessLoginPage()
         loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
         loginPage.submitLoginButton()
@@ -36,11 +36,21 @@ describe('Transação em Request', () => {
         newTransactionPage.fillAmmountField(userData.userTransaction.positiveValue)
         newTransactionPage.fillDescriptionField()
         newTransactionPage.validateValuetTransaction()
+        /*newTransactionPage.getBalanceAndAmount().then(({ balance, amount }) => {
+            console.log("Balance from spec: ", balance);
+            console.log("Amount from spec: ", amount);
+
+            // Check if the payment button is disabled/enabled
+            newTransactionPage.checkSubmitPaymentButton(balance, amount);
+            // Check if the request button is disabled/enabled
+            newTransactionPage.checkSubmitRequestButton(amount);
+        })*/
+        /////
         newTransactionPage.clickSubmitPayment()
         newTransactionPage.alertSuccessTransaction()
     });
 
-    it('Deve inpedir de realizar transferencia com saldo insuficiente', () => {
+    it('Deve impedir de realizar transferencia com saldo insuficiente', () => {
         loginPage.accessLoginPage()
         loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
         loginPage.submitLoginButton()
@@ -54,7 +64,7 @@ describe('Transação em Request', () => {
         newTransactionPage.validateValuetTransaction()
     })
 
-    it('Deve impedir de realizar transferencia com valor zero', () => {
+    it.only('Deve impedir de realizar transferencia com valor zero', () => {
         loginPage.accessLoginPage()
         loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
         loginPage.submitLoginButton()
@@ -66,9 +76,24 @@ describe('Transação em Request', () => {
         newTransactionPage.fillAmmountField(userData.userTransaction.zeroValue)
         newTransactionPage.fillDescriptionField()
         newTransactionPage.validateValuetTransaction()
+       /* newTransactionPage.getBalanceAndAmount().then(({ balance, amount }) => {
+            console.log("Balance from spec: ", balance);
+            console.log("Amount from spec: ", amount);
+
+            // Check if the payment button is disabled/enabled
+            newTransactionPage.checkSubmitPaymentButton(balance, amount);
+            // Check if the request button is disabled/enabled
+            newTransactionPage.checkSubmitRequestButton(amount);
+        })
+        cy.get(newTransactionPage.selectorsList().buttonSubmitPaymentTransaction)
+        .should('have.prop', 'disabled', true);*/
+        newTransactionPage.getBalanceAndAmount()
+        newTransactionPage.checkSubmitPaymentButton();
+        newTransactionPage.checkSubmitRequestButton();
+
     })
 
-    it.only('Deve impedir de realizar realizar transferencia com valor negativo', () => {
+    it('Deve impedir de realizar realizar transferencia com valor negativo', () => {
         loginPage.accessLoginPage()
         loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
         loginPage.submitLoginButton()
@@ -78,8 +103,17 @@ describe('Transação em Request', () => {
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clickUser()
         newTransactionPage.fillAmmountField(userData.userTransaction.negativeValue)
-       // newTransactionPage.fillDescriptionField()
-        newTransactionPage.validateValuetTransaction()
+        newTransactionPage.fillDescriptionField()
+        //newTransactionPage.validateValuetTransaction()
+        newTransactionPage.getBalanceAndAmount().then(({ balance, amount }) => {
+            console.log("Balance from spec: ", balance);
+            console.log("Amount from spec: ", amount);
+
+            // Check if the payment button is disabled/enabled
+            newTransactionPage.checkSubmitPaymentButton(balance, amount);
+            // Check if the request button is disabled/enabled
+            newTransactionPage.checkSubmitRequestButton(amount);
+        })
     })
 
     it('Deve testar o campo de amigos', () => {
