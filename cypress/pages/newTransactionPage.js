@@ -86,7 +86,7 @@ class NewTransactionPage {
         cy.get(this.selectorsList().wrongDescriptionAlert).should('be.visible')
     }
 
-    validateValuetTransaction() {
+    validateValueTransaction() {
         const selectors = this.selectorsList();
     
         cy.get(selectors.balanceField)

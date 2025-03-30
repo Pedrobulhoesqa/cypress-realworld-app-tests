@@ -35,7 +35,7 @@ describe('Realizar teste de fluxo de transação', () => {
         newTransactionPage.clickUser()
         newTransactionPage.fillAmmountField(userData.userTransaction.positiveValue)
         newTransactionPage.fillDescriptionField()
-        newTransactionPage.validateValuetTransaction()
+        newTransactionPage.validateValueTransaction()
         newTransactionPage.checkButtonsState()
         newTransactionPage.clickSubmitPayment()
         newTransactionPage.alertSuccessTransaction()
@@ -52,7 +52,7 @@ describe('Realizar teste de fluxo de transação', () => {
         newTransactionPage.clickUser()
         newTransactionPage.fillAmmountField(userData.userTransaction.extremeValue)
         newTransactionPage.fillDescriptionField()
-        newTransactionPage.validateValuetTransaction()
+        newTransactionPage.validateValueTransaction()
         newTransactionPage.checkButtonsState()
     })
 
@@ -67,7 +67,7 @@ describe('Realizar teste de fluxo de transação', () => {
         newTransactionPage.clickUser()
         newTransactionPage.fillAmmountField(userData.userTransaction.zeroValue)
         newTransactionPage.fillDescriptionField()
-        newTransactionPage.validateValuetTransaction()
+        newTransactionPage.validateValueTransaction()
         newTransactionPage.checkButtonsState()
 
     })
@@ -83,7 +83,7 @@ describe('Realizar teste de fluxo de transação', () => {
         newTransactionPage.clickUser()
         newTransactionPage.fillAmmountField(userData.userTransaction.negativeValue)
         newTransactionPage.fillDescriptionField()
-        newTransactionPage.validateValuetTransaction()
+        newTransactionPage.validateValueTransaction()
         newTransactionPage.checkButtonsState()
         })
 
