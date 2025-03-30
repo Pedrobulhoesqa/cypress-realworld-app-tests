@@ -70,7 +70,7 @@ class NewTransactionPage {
     }
 
     clearAmmountField (){
-        cy.get(this.selectorsList().inputAmountTransaction)
+        cy.get(this.selectorsList().amountValue)
           .clear()         
     }
 
@@ -85,122 +85,55 @@ class NewTransactionPage {
     alertFailedNote(){
         cy.get(this.selectorsList().wrongDescriptionAlert).should('be.visible')
     }
-//////////////////////////////////
-    getBalanceAndAmount() {
-        return cy.get(this.selectorsList().balanceField)
-            .invoke('text')
-            .then((text) => {
-                const cleanedText = text.replace(/\D/g, ''); // Remove non-numeric characters
-                const balance = parseFloat(cleanedText);
-
-                return cy.get(this.selectorsList().amountValue)
-                    .invoke('val')
-                    .then((value) => {
-                        const cleanedValue = value.replace(/(?!-)[^0-9.]/g, "");
-                        const amount = parseFloat(cleanedValue);
-
-                        return { balance, amount };
-                    });
-            });
-    }
-
-    checkSubmitPaymentButton(balance, amount) {
-        cy.get(this.selectorsList().buttonSubmitPaymentTransaction)
-            .then(($buttonPay) => {
-                console.log("Before assertion:");
-                console.log("Button Disabled Property: ", $buttonPay.prop('disabled'));
-                console.log("Button Disabled Class: ", $buttonPay.hasClass('Mui-disabled'));
-    
-                const isDisabled = amount <= 0 || amount > balance;  // Check if the amount is 0 or more than the balance
-    
-                // Log and assert the button's 'disabled' property and 'Mui-disabled' class
-                cy.wrap($buttonPay)
-                    .should('have.prop', 'disabled', isDisabled)
-                    .and('have.class', isDisabled ? 'Mui-disabled' : '');  // Ensure that the button is disabled or enabled as expected
-    
-                console.log("After assertion:");
-                console.log("Button Disabled Property: ", $buttonPay.prop('disabled'));
-                console.log("Button Disabled Class: ", $buttonPay.hasClass('Mui-disabled'));
-            });
-    }
-
-    // Method to check the request button
-    checkSubmitRequestButton(amount) {
-        cy.get(this.selectorsList().buttonSubmitRequestTransaction)
-            .then(($buttonReq) => {
-                if (amount <= 0) {
-                    $buttonReq.prop('disabled', true);
-                } else {
-                    $buttonReq.prop('disabled', false);
-                }
-                cy.wrap($buttonReq).should('have.prop', 'disabled', amount <= 0);
-            });
-    }
 
     validateValuetTransaction() {
         const selectors = this.selectorsList();
-        
-        // Get the balance and parse it
+    
         cy.get(selectors.balanceField)
-            .invoke('text')
-            .then((text) => {
-                const cleanedText = text.replace(/\D/g, ''); // Remove non-digit characters
-                const balance = parseFloat(cleanedText);
-                cy.wrap(balance).as('balance'); // Store balance in the test context
-            })
-            .should('be.a', 'number');  // Ensure balance is a number
+          .invoke('text')
+          .then((text) => {
+            const balance = parseFloat(text.replace(/\D/g, ''))
+            expect(balance).to.be.gte(0)
         
-        // Get the amount and parse it
         cy.get(selectors.amountValue)
-            .invoke('val')
-            .then((value) => {
-                const cleanedValue = value.replace(/(?!-)[^0-9.]/g, ""); // Remove non-numeric characters
-                const amount = parseFloat(cleanedValue);
-                cy.wrap(amount).as('amount');  // Store amount in the test context
+          .invoke('val')
+          .then((value) => {
+              const amount = parseFloat(value.replace(/(?!-)[^0-9.]/g, ""))
+              expect(amount).to.be.a('number')
+            
+              this.checkButtonsState(amount, balance)
             })
-            .should('be.a', 'number');  // Ensure amount is a number
-        
-        // Now that we have balance and amount in the context, validate the buttons
-        cy.then(function () {
-            const balance = this.balance;
-            const amount = this.amount;
-    
-            // Log balance and amount for debugging
-            console.log("Balance: ", balance);
-            console.log("Amount: ", amount);
-    
-            // Ensure balance is a valid number (greater than or equal to 0)
-            expect(balance).to.gte(0);
-    
-            // Check if the payment button should be enabled or disabled
-            cy.get(selectors.buttonSubmitPaymentTransaction)
-                .then(($buttonPay) => {
-                    const isDisabled = amount <= 0 || amount > balance;
-    
-                    // Log the current state of the button's disabled property and class
-                    console.log("Button Disabled Property: ", $buttonPay.prop('disabled'));
-                    console.log("Button Disabled Class: ", $buttonPay.hasClass('Mui-disabled'));
-    
-                    // Assert the button's 'disabled' property and 'Mui-disabled' class
-                    cy.wrap($buttonPay)
-                        .should('have.prop', 'disabled', isDisabled)
-                        .and('have.class', isDisabled ? 'Mui-disabled' : ''); // Check if the 'Mui-disabled' class is present when button is disabled
-                });
-    
-            // Check the submit request button based on the amount
-            cy.get(selectors.buttonSubmitRequestTransaction)
-                .then(($buttonReq) => {
-                    const isRequestDisabled = amount <= 0;
-                    
-                    cy.wrap($buttonReq)
-                        .should('have.prop', 'disabled', isRequestDisabled)
-                        .and('have.class', isRequestDisabled ? 'Mui-disabled' : ''); // Check if the 'Mui-disabled' class is present
-                });
-        });
+        })
     }
-    
-    
-         
+
+    checkButtonsState(amount, balance) {
+        const selectors = this.selectorsList()
+        const isRequestButtonDisabled = (amount <= 0)
+
+    cy.get(selectors.buttonSubmitRequestTransaction)
+      .should('have.prop', 'disabled', isRequestButtonDisabled)
+      .then(($button) => {
+
+        if (isRequestButtonDisabled) {
+          expect($button).to.have.class('Mui-disabled')
+        } else {
+          expect($button).to.not.have.class('Mui-disabled')
+        }
+      })
+
+        const isPayButtonDisabled = (amount <= 0 || amount > balance)
+
+    cy.get(selectors.buttonSubmitPaymentTransaction)
+      .should('have.prop', 'disabled', isPayButtonDisabled)
+      .then(($button) => {
+
+        if (isPayButtonDisabled) {
+          expect($button).to.have.class('Mui-disabled');
+        } else {
+          expect($button).to.not.have.class('Mui-disabled');
+        }
+       });
+    }        
 }
    
 
