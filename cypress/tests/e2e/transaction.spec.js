@@ -7,8 +7,7 @@ const loginPage = new LoginPage ()
 const homePage = new HomePage()
 const newTransactionPage = new NewTransactionPage()
 
-describe('Realizar teste de fluxo de transação', () => {
-
+describe('Adicionar saldo na conta', () => {
     it('Setup balance, com valor negativo', ()=> {
         loginPage.accessLoginPage()
         loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
@@ -23,7 +22,9 @@ describe('Realizar teste de fluxo de transação', () => {
         newTransactionPage.clickSubmitPayment()
         newTransactionPage.alertSuccessTransaction()
     })
+})
 
+describe('Enviar dinheiro com saldo suficiente', () => {
     it('Deve realizar transferencia com saldo suficiente', () => {
         loginPage.accessLoginPage()
         loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
@@ -40,7 +41,9 @@ describe('Realizar teste de fluxo de transação', () => {
         newTransactionPage.clickSubmitPayment()
         newTransactionPage.alertSuccessTransaction()
     });
+})
 
+describe('Enviar dinheiro com saldo insuficiente', () => {
     it('Deve impedir de realizar transferencia com saldo insuficiente', () => {
         loginPage.accessLoginPage()
         loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
@@ -55,7 +58,9 @@ describe('Realizar teste de fluxo de transação', () => {
         newTransactionPage.validateValueTransaction()
         newTransactionPage.checkButtonsState()
     })
+})
 
+describe('Enviar dinheiro com saldo zero e negativo', () => {
     it('Deve impedir de realizar transferencia com valor zero', () => {
         loginPage.accessLoginPage()
         loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
@@ -85,8 +90,10 @@ describe('Realizar teste de fluxo de transação', () => {
         newTransactionPage.fillDescriptionField()
         newTransactionPage.validateValueTransaction()
         newTransactionPage.checkButtonsState()
-        })
+    })
+})
 
+describe('Funcionalidades dos campos de amigos, amount e note', () => {
     it('Deve testar o campo de amigos', () => {
         loginPage.accessLoginPage()
         loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
@@ -96,8 +103,7 @@ describe('Realizar teste de fluxo de transação', () => {
         homePage.clickNewTransaction()
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clearSearchField()
-        newTransactionPage.checkListUsers()
-        newTransactionPage.clickUser()
+        newTransactionPage.clickOtherUser()
     })
 
     it('Deve testar os campos de Amount e Note', () => {

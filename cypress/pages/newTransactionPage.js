@@ -17,10 +17,9 @@ class NewTransactionPage {
             buttonSubmitPaymentTransaction:"[data-test='transaction-create-submit-payment']",
             alertBarSuccess: '[data-test="alert-bar-success"]',
             buttonReturnToTransaction: "[data-test='new-transaction-return-to-transactions']",
-            buttonAnotherTransaction: "[data-test='new-transaction-create-another-transaction']"
+            buttonAnotherTransaction: "[data-test='new-transaction-create-another-transaction']",
+            checkClickOneUser: '[data-test="user-list-item-_XblMqbuoP"]'
         }
-        
-        //return selectorsNewTransaction
 
     }
 
@@ -37,11 +36,15 @@ class NewTransactionPage {
     }
 
     checkListUsers() {
-        cy.get(this.selectorsList().listUsers).should('not.be.empty')
+        cy.get(this.selectorsList().listUsers).should('be.visible')
     }
 
     clickUser (){
         cy.get(this.selectorsList().listUsers).find('li').eq(0).click()
+    }
+
+    clickOtherUser() {
+        cy.get(this.selectorsList().checkClickOneUser).click()           
     }
     
     clickSubmitPayment(){
@@ -62,11 +65,11 @@ class NewTransactionPage {
     }
 
     typeSearchField(name) {
-        cy.get(this.selectorsList().inputListSearch).type(name)
+        cy.get(this.selectorsList().inputListSearch).type(name, { delay: 100 })
     }
 
     clearSearchField () {
-        cy.get(this.selectorsList().inputListSearch).clear()
+        cy.get(this.selectorsList().inputListSearch).clear().wait(100)
     }
 
     clearAmmountField (){
