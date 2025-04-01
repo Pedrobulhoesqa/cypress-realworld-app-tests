@@ -13,7 +13,7 @@ class HomePage {
             onboardingWrongBankRoutingNumberAlert:'#bankaccount-routingNumber-input-helper-text',
             onboardingWrongBankAccountNumberAlert:'#bankaccount-routingNumber-input-helper-text',
             buttonNavNewTransaction:"[data-test='nav-top-new-transaction']",
-            buttonNavPersonalHistory: "[data-test='nav-personal-tab']"
+            buttonNavPersonalTab: "[data-test='nav-personal-tab']"
         }
 
         return selectorsHome
@@ -84,8 +84,8 @@ class HomePage {
         cy.get(this.selectorsList().buttonNavNewTransaction).click()
     }
 
-    clickPersonalTransactionHistory (){
-        cy.get(this.selectorsList().buttonNavPersonalHistory).click()
+    clickPersonalFeedNav (){
+        cy.get(this.selectorsList().buttonNavPersonalTab).click()
     }
 }
 

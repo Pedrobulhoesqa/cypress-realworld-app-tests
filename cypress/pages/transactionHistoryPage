@@ -2,7 +2,7 @@ import { be } from "date-fns/locale"
 import { existsSync } from "fs"
 import { delay } from "lodash"
 
-class TransactionHistoryPage {
+class FeedPage {
     selectorsList() {
         return {
             emptyList: ""
@@ -12,10 +12,10 @@ class TransactionHistoryPage {
         }
     }
 
-    checkPersonalTransactionHistoryPage() {
+    checkPersonalFeedPage() {
         cy.location('pathname').should('equal', '/personal')
     }
     //checkEmptyList(){    }
 }
 
-export default TransactionHistoryPage
+export default FeedPage
