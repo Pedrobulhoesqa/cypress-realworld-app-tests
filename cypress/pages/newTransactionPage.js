@@ -20,7 +20,6 @@ class NewTransactionPage {
             buttonAnotherTransaction: "[data-test='new-transaction-create-another-transaction']",
             checkClickOneUser: '[data-test="user-list-item-_XblMqbuoP"]'
         }
-
     }
 
     checkNewTransactionPage() {

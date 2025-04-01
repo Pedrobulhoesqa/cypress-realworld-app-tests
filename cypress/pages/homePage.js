@@ -12,15 +12,15 @@ class HomePage {
             onboardingWrongBankNameAlert:'#bankaccount-bankName-input-helper-text',
             onboardingWrongBankRoutingNumberAlert:'#bankaccount-routingNumber-input-helper-text',
             onboardingWrongBankAccountNumberAlert:'#bankaccount-routingNumber-input-helper-text',
-            buttonNavNewTransaction:"[data-test='nav-top-new-transaction']"
+            buttonNavNewTransaction:"[data-test='nav-top-new-transaction']",
+            buttonNavPersonalHistory: "[data-test='nav-personal-tab']"
         }
 
         return selectorsHome
 
     }
     checkHomePage() {
-        cy.location('pathname').should('equal', '/')
-        
+        cy.location('pathname').should('equal', '/')    
     }
 
     checkProfileHomePage(username) {
@@ -82,6 +82,10 @@ class HomePage {
 
     clickNewTransaction (){
         cy.get(this.selectorsList().buttonNavNewTransaction).click()
+    }
+
+    clickPersonalTransactionHistory (){
+        cy.get(this.selectorsList().buttonNavPersonalHistory).click()
     }
 }
 
