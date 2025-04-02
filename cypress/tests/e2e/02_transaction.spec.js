@@ -10,10 +10,10 @@ const newTransactionPage = new NewTransactionPage()
 describe('Adicionar saldo na conta', () => {
     it('Setup balance, com valor negativo', ()=> {
         loginPage.accessLoginPage()
-        loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
+        loginPage.loginWithUser(userData.userOne.username, userData.userOne.password)
         loginPage.submitLoginButton()
         homePage.checkHomePage()
-        homePage.checkProfileHomePage(userData.userSuccess.username)
+        homePage.checkProfileHomePage(userData.userOne.username)
         homePage.clickNewTransaction()
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clickUser()
@@ -27,10 +27,10 @@ describe('Adicionar saldo na conta', () => {
 describe('Enviar dinheiro com saldo suficiente', () => {
     it('Deve realizar transferencia com saldo suficiente', () => {
         loginPage.accessLoginPage()
-        loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
+        loginPage.loginWithUser(userData.userOne.username, userData.userOne.password)
         loginPage.submitLoginButton()
         homePage.checkHomePage()
-        homePage.checkProfileHomePage(userData.userSuccess.username)
+        homePage.checkProfileHomePage(userData.userOne.username)
         homePage.clickNewTransaction()
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clickUser()
@@ -46,10 +46,10 @@ describe('Enviar dinheiro com saldo suficiente', () => {
 describe('Enviar dinheiro com saldo insuficiente', () => {
     it('Deve impedir de realizar transferencia com saldo insuficiente', () => {
         loginPage.accessLoginPage()
-        loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
+        loginPage.loginWithUser(userData.userOne.username, userData.userOne.password)
         loginPage.submitLoginButton()
         homePage.checkHomePage()
-        homePage.checkProfileHomePage(userData.userSuccess.username)
+        homePage.checkProfileHomePage(userData.userOne.username)
         homePage.clickNewTransaction()
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clickUser()
@@ -63,10 +63,10 @@ describe('Enviar dinheiro com saldo insuficiente', () => {
 describe('Enviar dinheiro com saldo zero e negativo', () => {
     it('Deve impedir de realizar transferencia com valor zero', () => {
         loginPage.accessLoginPage()
-        loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
+        loginPage.loginWithUser(userData.userOne.username, userData.userOne.password)
         loginPage.submitLoginButton()
         homePage.checkHomePage()
-        homePage.checkProfileHomePage(userData.userSuccess.username)
+        homePage.checkProfileHomePage(userData.userOne.username)
         homePage.clickNewTransaction()
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clickUser()
@@ -79,10 +79,10 @@ describe('Enviar dinheiro com saldo zero e negativo', () => {
 
     it('Deve impedir de realizar realizar transferencia com valor negativo', () => {
         loginPage.accessLoginPage()
-        loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
+        loginPage.loginWithUser(userData.userOne.username, userData.userOne.password)
         loginPage.submitLoginButton()
         homePage.checkHomePage()
-        homePage.checkProfileHomePage(userData.userSuccess.username)
+        homePage.checkProfileHomePage(userData.userOne.username)
         homePage.clickNewTransaction()
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clickUser()
@@ -96,10 +96,10 @@ describe('Enviar dinheiro com saldo zero e negativo', () => {
 describe('Funcionalidades dos campos de amigos, amount e note', () => {
     it('Deve testar o campo de amigos', () => {
         loginPage.accessLoginPage()
-        loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
+        loginPage.loginWithUser(userData.userOne.username, userData.userOne.password)
         loginPage.submitLoginButton()
         homePage.checkHomePage()
-        homePage.checkProfileHomePage(userData.userSuccess.username)
+        homePage.checkProfileHomePage(userData.userOne.username)
         homePage.clickNewTransaction()
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clearSearchField()
@@ -108,10 +108,10 @@ describe('Funcionalidades dos campos de amigos, amount e note', () => {
 
     it('Deve testar os campos de Amount e Note', () => {
         loginPage.accessLoginPage()
-        loginPage.loginWithUser(userData.userSuccess.username, userData.userSuccess.password)
+        loginPage.loginWithUser(userData.userOne.username, userData.userOne.password)
         loginPage.submitLoginButton()
         homePage.checkHomePage()
-        homePage.checkProfileHomePage(userData.userSuccess.username)
+        homePage.checkProfileHomePage(userData.userOne.username)
         homePage.clickNewTransaction()
         newTransactionPage.typeSearchField(userData.userTransaction.name)
         newTransactionPage.clickUser()

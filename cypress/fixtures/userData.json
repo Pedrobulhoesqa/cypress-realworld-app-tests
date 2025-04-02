@@ -1,8 +1,8 @@
 {
-    "userSuccess": {
+    "userOne": {
         "username": "test1user",
         "password": "test123",
-        "firstName": "Pedro",
+        "firstName": "Pedro1",
         "lastName": "QA"
     },
     "userFail": {
@@ -14,6 +14,13 @@
     "userNull":{
         "username": " ",
         "password": " "
+    },
+
+    "userTwo":{
+        "username": "test2user",
+        "password": "test123",
+        "firstName": "Pedro2",
+        "lastName": "QA"
     },
 
     "bankSuccess":{
