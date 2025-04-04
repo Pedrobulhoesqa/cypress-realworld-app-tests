@@ -5,7 +5,9 @@ import { delay } from "lodash"
 class FeedPage {
     selectorsList() {
         return {
-            emptyList: ""
+            emptyList: "[data-test='empty-list-header']",
+            emptyButtonCreateTransaction: "[data-test='transaction-list-empty-create-transaction-button']",
+            
 
 
 
